@@ -23,7 +23,7 @@ app.use((req,res,next)=>{
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
-app.use('/files',express.static(path.resolve(__dirname,'uploads','resized')))
+app.use('/files',express.static(path.resolve(__dirname,'uploads')))
 
 //rotas
 app.use(routes)

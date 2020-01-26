@@ -22,13 +22,13 @@ class PostController{
         const {description,hashtags,place} = req.body;
         const {filename:image} = req.file;
         try{
-            await sharp(req.file.path)
-                .resize(500)
-                .jpeg({quality:70})
-                .toFile(
-                    path.resolve(req.file.destination,'resized',image)
-                )
-            fs.unlinkSync(req.file.path)
+            // await sharp(req.file.path)
+            //     .resize(500)
+            //     .jpeg({quality:70})
+            //     .toFile(
+            //         path.resolve(req.file.destination,'resized',image)
+            //     )
+            // fs.unlinkSync(req.file.path)
             let post = await Post.create({author:req.userId,description,hashtags,place,image})
             post = JSON.parse(JSON.stringify(post))
             post.author = {
